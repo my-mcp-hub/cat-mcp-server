@@ -1,20 +1,48 @@
 import { z } from 'zod'
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
-import type { OptionsType } from '../types'
 
-export const registerTools = (server: McpServer, options: OptionsType) => {
+export const registerTools = (server: McpServer) => {
   server.tool(
-    'GetData',
-    '实时查询数据。',
+    'GenerateCatImage',
+    'Generate a cat image with optional text, font size, and font color.',
     {
-      keyword: z.string().describe('搜索关键字'),
+      text: z.string().optional().describe('Optional text to display on the cat image'),
+      fontSize: z.string().optional().describe('Font size for the text, e.g., 20'),
+      fontColor: z
+        .enum([
+          'black',
+          'white',
+          'red',
+          'green',
+          'blue',
+          'yellow',
+          'orange',
+          'purple',
+          'pink',
+          'brown',
+          'gray',
+          'cyan',
+          'magenta',
+        ])
+        .optional()
+        .describe('Font color using named CSS color values (e.g., "red", "blue")'),
     },
-    ({ keyword }) => {
+    async ({ text, fontSize, fontColor }) => {
+      const url = new URL('https://cataas.com/cat/gif')
+      if (text) {
+        url.pathname += `/${text}`
+      }
+      if (fontSize) {
+        url.searchParams.append('fontSize', fontSize)
+      }
+      if (fontColor) {
+        url.searchParams.append('fontColor', fontColor)
+      }
       return {
         content: [
           {
             type: 'text',
-            text: `实时查询数据。${keyword}`,
+            text: url.toString(),
           },
         ],
       }
