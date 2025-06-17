@@ -30,7 +30,7 @@ export const registerTools = (server: McpServer) => {
     async ({ text, fontSize, fontColor }) => {
       const url = new URL('https://cataas.com/cat/gif')
       if (text) {
-        url.pathname += `/${text}`
+        url.pathname += `/says/${text}`
       }
       if (fontSize) {
         url.searchParams.append('fontSize', fontSize)
