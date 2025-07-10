@@ -17,7 +17,7 @@ const createServer = (options: OptionsType) => {
     //   tools: {},
     // },
   })
-  registerTools(server)
+  registerTools(server, options)
   return server
 }
 
