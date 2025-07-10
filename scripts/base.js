@@ -20,26 +20,29 @@ export const config = {
   minify: isProd,
   platform: 'node',
   external: ['yargs', 'node-fetch', 'cors', 'express', 'nanoid', 'zod', 'dotenv', '@modelcontextprotocol/sdk'],
+  alias: {
+    '@': path.resolve(__dirname, '../src'),
+  },
   plugins: [
     {
       name: 'build-plugin',
       setup(build) {
         build.onStart(async result => {
-          await after(result)
+          await before(result)
         })
         build.onEnd(async result => {
-          await before(result)
+          await after(result)
         })
       },
     },
   ],
 }
 
-const after = async () => {
+const before = async () => {
   await rimraf('build')
 }
 
-const before = async result => {
+const after = async result => {
   await fs.chmod('build/index.js', 0o755)
   console.log('✅ chmod 755 build/index.js done')
   if (isDev) {

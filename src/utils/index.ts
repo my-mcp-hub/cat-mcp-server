@@ -1,5 +1,5 @@
 import type { ArgumentsCamelCase } from 'yargs'
-import type { OptionsType } from '../types'
+import type { OptionsType } from '@/types'
 
 export function getOptions(argv: ArgumentsCamelCase) {
   return {
