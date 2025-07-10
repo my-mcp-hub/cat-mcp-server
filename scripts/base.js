@@ -59,6 +59,11 @@ const after = async result => {
     inspectorProcess = spawn('npx', ['@modelcontextprotocol/inspector', 'build/index.js'], {
       stdio: 'inherit',
       shell: true,
+      env: {
+        ...process.env,
+        DANGEROUSLY_OMIT_AUTH: true,
+        MCP_AUTO_OPEN_ENABLED: false,
+      },
     })
 
     if (process.env.TRANSPORT === 'web') {
