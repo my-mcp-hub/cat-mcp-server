@@ -11,7 +11,7 @@ const serverParams = new StdioClientTransport({
   },
 })
 const client = new Client({
-  name: 'doc-mcp-client',
+  name: 'cat-mcp-client',
   version: '1.0.0',
 })
 await client.connect(serverParams)
