@@ -1,11 +1,16 @@
 import type { ArgumentsCamelCase } from 'yargs'
 import type { OptionsType } from '@/types'
 
-export function getOptions(argv: ArgumentsCamelCase) {
+export function getOptions(
+  argv: ArgumentsCamelCase,
+  pkg: {
+    name: string
+    version: string
+  },
+) {
   return {
-    url: argv.url,
-    key: argv.key,
-    secretKey: argv.secret_key,
+    name: pkg.name,
+    version: pkg.version,
     port: argv.port,
   } as OptionsType
 }
