@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    if: github.repository == 'my-mcp-hub/node-mcp-server'
+    if: github.repository == 'my-mcp-hub/cat-mcp-server'
     runs-on: ubuntu-latest
     permissions:
       contents: read

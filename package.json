@@ -1,7 +1,7 @@
 {
-  "name": "node-mcp-server",
+  "name": "cat-mcp-server",
   "version": "0.0.1",
-  "description": "MCP Server Template For Node.js",
+  "description": "A cat mcp server",
   "author": "zhensherlock",
   "type": "module",
   "license": "MIT",
