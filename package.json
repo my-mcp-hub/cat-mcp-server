@@ -1,6 +1,6 @@
 {
   "name": "cat-mcp-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A cat mcp server",
   "author": "zhensherlock",
   "type": "module",
