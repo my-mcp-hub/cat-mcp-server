@@ -15,7 +15,7 @@ On Mac system:
       "command": "npx",
       "args": [
         "-y",
-        "@my-mcp-hub/cat-mcp-server"
+        "cat-mcp-server"
       ]
     }
   }
@@ -33,7 +33,7 @@ On Window system:
         "/c",
         "npx",
         "-y",
-        "@my-mcp-hub/cat-mcp-server"
+        "cat-mcp-server"
       ]
     }
   }
