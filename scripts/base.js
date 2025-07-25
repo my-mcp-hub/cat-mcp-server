@@ -20,7 +20,7 @@ export const config = {
   sourcemap: isDev,
   minify: isProd,
   platform: 'node',
-  external: ['yargs', 'node-fetch', 'cors', 'express', 'nanoid', 'zod', 'dotenv', '@modelcontextprotocol/sdk'],
+  external: ['yargs', 'express', 'zod', 'dotenv', '@modelcontextprotocol/sdk'],
   alias: {
     '@': path.resolve(__dirname, '../src'),
   },
