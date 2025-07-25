@@ -25,8 +25,8 @@
     "coverage": "rimraf coverage && npm run test && c8 report --reporter=html"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.16.0",
-    "dotenv": "^17.2.0",
+    "@modelcontextprotocol/sdk": "^1.17.0",
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "node-fetch": "^3.3.2",
     "yargs": "^17.7.2",
