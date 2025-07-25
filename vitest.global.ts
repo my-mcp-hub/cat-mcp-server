@@ -5,7 +5,7 @@ export default async function setup() {
   const webProcess = spawn('c8', ['--reporter=lcov', '--reporter=text', 'tsx', './src/index.ts', 'web'], {
     stdio: 'pipe',
     env: {
-      ...process.env,
+      ...process.env as Record<string, string>,
       NODE_V8_COVERAGE: './coverage/tmp',
     },
   })
