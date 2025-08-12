@@ -3,7 +3,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js'
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js'
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js'
 
-const stdioClient = new StdioClientTransport({
+const stdioClientTransport = new StdioClientTransport({
   command: 'c8',
   args: ['--reporter=lcov', '--reporter=text', 'tsx', './src/index.ts'],
   env: {
@@ -13,14 +13,14 @@ const stdioClient = new StdioClientTransport({
 })
 
 const baseUrl = new URL('http://localhost:8401/mcp')
-const streamableClient = new StreamableHTTPClientTransport(
+const streamableClientTransport = new StreamableHTTPClientTransport(
   new URL(baseUrl)
 )
 const client = new Client({
   name: 'test-mcp-client',
   version: '1.0.0',
 })
-await client.connect(stdioClient)
-await client.connect(streamableClient)
+await client.connect(stdioClientTransport)
+await client.connect(streamableClientTransport)
 
 global.client = client
