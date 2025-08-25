@@ -55,7 +55,7 @@
     "lint-staged": "^16.1.5",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
-    "tsx": "^4.20.4",
+    "tsx": "^4.20.5",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   },
