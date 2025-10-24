@@ -57,15 +57,19 @@ const after = async result => {
     if (inspectorProcess) {
       inspectorProcess.kill('SIGINT')
     }
-    inspectorProcess = spawn('npx', ['@modelcontextprotocol/inspector', 'build/index.js'], {
-      stdio: 'inherit',
-      shell: true,
-      env: {
-        ...process.env,
-        DANGEROUSLY_OMIT_AUTH: true,
-        MCP_AUTO_OPEN_ENABLED: autoOpenBrowser,
+    inspectorProcess = spawn(
+      'npx',
+      ['@modelcontextprotocol/inspector', '--config', './src/assets/mcp.json', '--server', 'mcp-stdio'],
+      {
+        stdio: 'inherit',
+        shell: true,
+        env: {
+          ...process.env,
+          DANGEROUSLY_OMIT_AUTH: true,
+          MCP_AUTO_OPEN_ENABLED: autoOpenBrowser,
+        },
       },
-    })
+    )
     autoOpenBrowser = false
 
     if (process.env.TRANSPORT === 'web') {
